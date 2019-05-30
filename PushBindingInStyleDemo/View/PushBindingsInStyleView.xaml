@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="PushBindingInStyleDemo.View.PushBindingsInStyleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:pb="clr-namespace:PushBindingExtension;assembly=PushBinding"
+             xmlns:vm="clr-namespace:PushBindingInStyleDemo.ViewModel"
+             xmlns:con="clr-namespace:PushBindingInStyleDemo.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="525">
+    <UserControl.Resources>
+        <TextBlock x:Key="sourceTextBlock"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Background="Lavender"
+                   TextWrapping="Wrap"
+                   Text="This TextBlock will do OneWayToSource Bindings, using PushBindings in Style, for the ReadOnly DP's ActualWidth and ActualHeight">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="pb:PushBindingManager.StylePushBindings">
+                        <Setter.Value>
+                            <pb:PushBindingCollection>
+                                <pb:PushBinding TargetProperty="ActualHeight" Path="Height"/>
+                                <pb:PushBinding TargetProperty="ActualWidth" Path="Width"/>
+                                <pb:PushBinding TargetProperty="ActualHeight"
+                                                RelativeSource="{RelativeSource AncestorType={x:Type Window}}"
+                                                Path="Title"
+                                                Mode="OneWayToSource"
+                                                Converter="{con:PushBindingStringFormatConverter StringFormat='{}RelativeSource PushBinding: {0}'}"/>
+                                <pb:PushBinding TargetProperty="ActualHeight"
+                                                ElementName="textBlock"
+                                                Path="Text"
+                                                Mode="OneWayToSource"
+                                                Converter="{con:PushBindingStringFormatConverter StringFormat='{}Elementname PushBinding: {0}'}"/>
+                                <pb:PushBinding TargetProperty="ActualHeight"
+                                                Source="{StaticResource sourceTextBlock}"
+                                                Path="Text"
+                                                Mode="OneWayToSource"
+                                                Converter="{con:PushBindingStringFormatConverter StringFormat='{}Source PushBinding: {0}'}"/>
+                            </pb:PushBindingCollection>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBlock Grid.Row="1" Text="{Binding Height, StringFormat='{}DataContext PushBinding: ActualHeight: {0}'}"/>
+        <TextBlock Grid.Row="2" Text="{Binding Width, StringFormat='{}DataContext PushBinding: ActualWidth: {0}'}"/>
+        <TextBlock Name="textBlock"
+                   Grid.Row="3"/>
+        <ContentControl Grid.Row="4" Content="{StaticResource sourceTextBlock}"/>
+        <TextBlock Grid.Row="5"
+                   Text="PushBindings in ItemContainerStyle Example"
+                   FontWeight="Bold"
+                   Margin="0,10,0,0"/>
+        <ListBox Grid.Row="6"
+                 ItemsSource="{Binding MyItems}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="pb:PushBindingManager.StylePushBindings">
+                        <Setter.Value>
+                            <pb:PushBindingCollection>
+                                <pb:PushBinding TargetProperty="ActualWidth" Path="Width"/>
+                                <pb:PushBinding TargetDependencyProperty="{x:Static TextBlock.ActualHeightProperty}" Path="Height"/>
+                                <pb:PushBinding TargetProperty="IsFocused" Path="Focused"/>
+                            </pb:PushBindingCollection>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+</UserControl>
