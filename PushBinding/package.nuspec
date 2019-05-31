@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>PushBinding</id>
+    <!--*-->
+    <version>1.0.1</version>
+    <title>PushBinding</title>
+    <!--*-->
+    <authors>Fredrik Hedblad, Pierre Sprimont</authors>
+    <owners>Pierre Sprimont</owners>
+    <licenseUrl>https://github.com/pierresprim/PushBinding/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/pierresprim/PushBinding</projectUrl>
+    <!--
+    <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <!--*-->
+    <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
+    <!--*-->
+    <releaseNotes>System requirements:
+.NET Framework version: 4.8
+OS: Windows
+New in this version:
+Updated project to the new .NET and code specifications
+Project link: https://github.com/pierresprim/PushBinding
+License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE</releaseNotes>
+    <copyright>Copyright © 2019 Pierre Sprimont</copyright>
+    <tags>
+    </tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>

@@ -206,6 +206,7 @@ namespace PushBindingExtension
             ValidatesOnDataErrors = freezableBindingClone.ValidatesOnDataErrors;
             ValidatesOnExceptions = freezableBindingClone.ValidatesOnExceptions;
             XPath = XPath;
+
             foreach (ValidationRule validationRule in freezableBindingClone.ValidationRules)
             
                 ValidationRules.Add(validationRule);

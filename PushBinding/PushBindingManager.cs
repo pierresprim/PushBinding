@@ -18,6 +18,8 @@ namespace PushBindingExtension
 
         private const string PushBindingsInternal = "PushBindingsInternal";
 
+        private const string StylePushBindings = "StylePushBindings";
+
         public static DependencyProperty PushBindingsProperty =
             DependencyProperty.RegisterAttached(PushBindingsInternal,
                                                 typeof(PushBindingCollection),
@@ -36,7 +38,7 @@ namespace PushBindingExtension
         public static void SetPushBindings(DependencyObject obj, PushBindingCollection value) => obj.SetValue(PushBindingsProperty, value);
 
         public static DependencyProperty StylePushBindingsProperty =
-            DependencyProperty.RegisterAttached("StylePushBindings",
+            DependencyProperty.RegisterAttached(StylePushBindings,
                                                 typeof(PushBindingCollection),
                                                 typeof(PushBindingManager),
                                                 new UIPropertyMetadata(null, StylePushBindingsChanged));

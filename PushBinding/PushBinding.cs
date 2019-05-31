@@ -45,7 +45,7 @@ namespace PushBindingExtension
         }
         public object TargetPropertyListener
         {
-            get { return GetValue(dp: TargetPropertyListenerProperty); }
+            get => GetValue(dp: TargetPropertyListenerProperty);
             set => SetValue(TargetPropertyListenerProperty, value);
         }
 
