@@ -19,9 +19,6 @@ namespace PushBindingInStyleDemo.View
     /// </summary>
     public partial class PushBindingsView : UserControl
     {
-        public PushBindingsView()
-        {
-            InitializeComponent();
-        }
+        public PushBindingsView() => InitializeComponent();
     }
 }

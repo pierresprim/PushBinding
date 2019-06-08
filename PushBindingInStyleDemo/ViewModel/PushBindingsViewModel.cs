@@ -13,44 +13,50 @@ namespace PushBindingInStyleDemo.ViewModel
             DisplayName = "PushBinding Examples";
 
             MyItems = new ObservableCollection<ListItemViewModel>();
-            MyItems.Add(new ListItemViewModel { Name = "ListItem 1" });
-            MyItems.Add(new ListItemViewModel { Name = "ListItem 2" });
-            MyItems.Add(new ListItemViewModel { Name = "ListItem 3" });
-            MyItems.Add(new ListItemViewModel { Name = "ListItem 4" });
-            MyItems.Add(new ListItemViewModel { Name = "ListItem 5" });
+
+            for (int i = 1; i < 6; i++)
+
+                MyItems.Add(new ListItemViewModel { Name = $"ListItem {i.ToString()}" });
         }
 
         #region Properties
 
         private double m_height;
+
         public double Height
         {
-            get { return m_height; }
+            get => m_height;
+
             set
             {
                 m_height = value;
-                OnPropertyChanged("Height");
+                OnPropertyChanged(nameof(Height));
             }
         }
+
         private double m_width;
+
         public double Width
         {
-            get { return m_width; }
+            get => m_width;
+
             set
             {
                 m_width = value;
-                OnPropertyChanged("Width");
+                OnPropertyChanged(nameof(Width));
             }
         }
 
         private ObservableCollection<ListItemViewModel> m_myItems;
+
         public ObservableCollection<ListItemViewModel> MyItems
         {
-            get { return m_myItems; }
+            get => m_myItems;
+
             set
             {
                 m_myItems = value;
-                OnPropertyChanged("MyItems");
+                OnPropertyChanged(nameof(MyItems));
             }
         }
 

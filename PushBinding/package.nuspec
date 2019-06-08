@@ -4,7 +4,7 @@
     <!--*-->
     <id>PushBinding</id>
     <!--*-->
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <title>PushBinding</title>
     <!--*-->
     <authors>Fredrik Hedblad, Pierre Sprimont</authors>
@@ -19,12 +19,19 @@
     <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
     <!--*-->
     <releaseNotes>System requirements:
+
 .NET Framework version: 4.8
+
 OS: Windows
+
 New in this version:
-Updated project to the new .NET and code specifications
+
+Feature implementation and minor performance update
+
 Project link: https://github.com/pierresprim/PushBinding
-License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE</releaseNotes>
+
+License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE
+</releaseNotes>
     <copyright>Copyright © 2019 Pierre Sprimont</copyright>
     <tags>
     </tags>

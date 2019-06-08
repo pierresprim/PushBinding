@@ -18,13 +18,15 @@ namespace PushBindingInStyleDemo.ViewModel
         #region Properties
 
         private ObservableCollection<ViewModelBase> m_pushBindingExamples;
+
         public ObservableCollection<ViewModelBase> PushBindingExamples
         {
-            get { return m_pushBindingExamples; }
+            get => m_pushBindingExamples;
+
             set
             {
                 m_pushBindingExamples = value;
-                OnPropertyChanged("PushBindingExamples");
+                OnPropertyChanged(nameof(PushBindingExamples));
             }
         }
 

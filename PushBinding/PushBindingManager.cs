@@ -3,13 +3,8 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Markup;
 using System.ComponentModel;
-using System.Collections;
 
 namespace PushBindingExtension
 {
@@ -20,22 +15,26 @@ namespace PushBindingExtension
 
         private const string StylePushBindings = "StylePushBindings";
 
-        public static DependencyProperty PushBindingsProperty =
-            DependencyProperty.RegisterAttached(PushBindingsInternal,
+        private static DependencyPropertyKey PushBindingsPropertyKey =
+            DependencyProperty.RegisterAttachedReadOnly(PushBindingsInternal,
                                                 typeof(PushBindingCollection),
                                                 typeof(PushBindingManager),
                                                 new UIPropertyMetadata(null));
 
+        public static DependencyProperty PushBindingsProperty = PushBindingsPropertyKey.DependencyProperty;
+
         public static PushBindingCollection GetPushBindings(DependencyObject obj)
         {
+
             if (obj.GetValue(PushBindingsProperty) == null)
 
-                obj.SetValue(PushBindingsProperty, new PushBindingCollection(obj));
+                SetPushBindings(obj, new PushBindingCollection(obj));
 
             return (PushBindingCollection)obj.GetValue(PushBindingsProperty);
+
         }
 
-        public static void SetPushBindings(DependencyObject obj, PushBindingCollection value) => obj.SetValue(PushBindingsProperty, value);
+        private static void SetPushBindings(DependencyObject obj, PushBindingCollection value) => obj.SetValue(PushBindingsPropertyKey, value);
 
         public static DependencyProperty StylePushBindingsProperty =
             DependencyProperty.RegisterAttached(StylePushBindings,
@@ -47,14 +46,20 @@ namespace PushBindingExtension
 
         public static void SetStylePushBindings(DependencyObject obj, PushBindingCollection value) => obj.SetValue(StylePushBindingsProperty, value);
 
-        public static void StylePushBindingsChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
+        private static void StylePushBindingsChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
 
             if (target != null)
 
+            {
+
+                PushBindingCollection pushBindings = GetPushBindings(target);
+
                 foreach (PushBinding pushBinding in e.NewValue as PushBindingCollection)
 
-                    GetPushBindings(target).Add(pushBinding.Clone() as PushBinding);
+                    pushBindings.Add(pushBinding.Clone() as PushBinding);
+
+            }
 
         }
     }
