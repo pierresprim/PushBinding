@@ -4,7 +4,7 @@
     <!--*-->
     <id>PushBinding</id>
     <!--*-->
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>PushBinding</title>
     <!--*-->
     <authors>Fredrik Hedblad, Pierre Sprimont</authors>
@@ -18,8 +18,7 @@
     <!--*-->
     <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
     <!--*-->
-    <releaseNotes>
-      System requirements:
+    <releaseNotes>System requirements:
 
       .NET Framework version: 4.8
 
