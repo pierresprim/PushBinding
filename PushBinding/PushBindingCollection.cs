@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows;
 using System.Collections.Specialized;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace PushBindingExtension
 {
@@ -17,23 +18,7 @@ namespace PushBindingExtension
 
         public PushBindingCollection() { }
 
-        public PushBindingCollection(DependencyObject targetObject)
-        {
-            TargetObject = targetObject;
-
-            ((INotifyCollectionChanged)this).CollectionChanged += CollectionChanged;
-        }
-
-        void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-
-            if (e.Action == NotifyCollectionChangedAction.Add)
-
-                foreach (PushBinding pushBinding in e.NewItems)
-
-                    pushBinding.SetupTargetBinding(TargetObject);
-
-        }
+        public PushBindingCollection(DependencyObject targetObject) => TargetObject = targetObject;
 
         public DependencyObject TargetObject { get; private set; }
 

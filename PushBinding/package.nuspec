@@ -18,20 +18,21 @@
     <!--*-->
     <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
     <!--*-->
-    <releaseNotes>System requirements:
+    <releaseNotes>
+      System requirements:
 
-.NET Framework version: 4.8
+      .NET Framework version: 4.8
 
-OS: Windows
+      OS: Windows
 
-New in this version:
+      New in this version:
 
-Feature implementation and minor performance update
+      Added a feature to handle push bindings in triggers
 
-Project link: https://github.com/pierresprim/PushBinding
+      Project link: https://github.com/pierresprim/PushBinding
 
-License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE
-</releaseNotes>
+      License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE
+    </releaseNotes>
     <copyright>Copyright © 2019 Pierre Sprimont</copyright>
     <tags>
     </tags>

@@ -19,11 +19,16 @@ namespace PushBindingExtension
 {
     public class FreezableBinding : Freezable
     {
+
         #region Properties
 
         private Binding _binding;
 
         protected Binding Binding => _binding ?? (_binding = new Binding());
+
+        public DependencyObject TargetObject { get; internal set; }
+
+        internal int Id { get; set; }
 
         [DefaultValue(null)]
         public object AsyncState
@@ -178,17 +183,17 @@ namespace PushBindingExtension
             FreezableBinding freezableBindingClone = sourceFreezable as FreezableBinding;
 
             if (freezableBindingClone.ElementName != null)
-            
+
                 ElementName = freezableBindingClone.ElementName;
-            
+
             else if (freezableBindingClone.RelativeSource != null)
-            
+
                 RelativeSource = freezableBindingClone.RelativeSource;
-            
+
             else if (freezableBindingClone.Source != null)
-            
+
                 Source = freezableBindingClone.Source;
-            
+
             AsyncState = freezableBindingClone.AsyncState;
             BindsDirectlyToSource = freezableBindingClone.BindsDirectlyToSource;
             Converter = freezableBindingClone.Converter;
@@ -208,9 +213,9 @@ namespace PushBindingExtension
             XPath = XPath;
 
             foreach (ValidationRule validationRule in freezableBindingClone.ValidationRules)
-            
+
                 ValidationRules.Add(validationRule);
-            
+
             base.CloneCore(sourceFreezable);
         }
 

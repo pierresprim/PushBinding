@@ -12,8 +12,9 @@ using System.Windows.Data;
 
 namespace PushBindingExtension
 {
-    public class PushBinding : FreezableBinding
+    public class PushBinding : FreezableBinding, IDisposable
     {
+
         #region Dependency Properties 
 
         public static DependencyProperty TargetPropertyMirrorProperty =
@@ -59,15 +60,15 @@ namespace PushBindingExtension
 
         #region Public Methods
 
-        public void SetupTargetBinding(DependencyObject targetObject)
+        public void SetupTargetBinding()
         {
-            if (targetObject == null)
+            if (TargetObject == null)
 
                 return;
 
             // Prevent the designer from reporting exceptions since
             // changes will be made of a Binding in use if it is set
-            if (DesignerProperties.GetIsInDesignMode(this) == true)
+            if (DesignerProperties.GetIsInDesignMode(this))
 
                 return;
 
@@ -75,7 +76,7 @@ namespace PushBindingExtension
             // notified about changes in OnTargetPropertyListenerChanged
             Binding listenerBinding = new Binding
             {
-                Source = targetObject,
+                Source = TargetObject,
                 Mode = BindingMode.OneWay
             };
 
@@ -90,15 +91,17 @@ namespace PushBindingExtension
 
             TargetPropertyValueChanged();
 
-            if (targetObject is FrameworkElement)
+            if (TargetObject is FrameworkElement _targetObject)
 
-                ((FrameworkElement)targetObject).Loaded += delegate { TargetPropertyValueChanged(); };
+                _targetObject.Loaded += DependencyObject_Loaded;
 
-            else if (targetObject is FrameworkContentElement)
+            else if (TargetObject is FrameworkContentElement __targetObject)
 
-                ((FrameworkContentElement)targetObject).Loaded += delegate { TargetPropertyValueChanged(); };
+                __targetObject.Loaded += DependencyObject_Loaded;
 
         }
+
+        private void DependencyObject_Loaded(object sender, RoutedEventArgs e) => TargetPropertyValueChanged();
 
         #endregion // Public Methods
 
@@ -121,5 +124,20 @@ namespace PushBindingExtension
         protected override Freezable CreateInstanceCore() => new PushBinding();
 
         #endregion // Freezable overrides
+
+        public void Dispose()
+        {
+            BindingOperations.ClearBinding(this, TargetPropertyListenerProperty);
+
+            BindingOperations.ClearBinding(this, TargetPropertyMirrorProperty);
+
+            if (TargetObject is FrameworkElement _targetObject)
+
+                _targetObject.Loaded -= DependencyObject_Loaded;
+
+            else if (TargetObject is FrameworkContentElement __targetObject)
+
+                __targetObject.Loaded -= DependencyObject_Loaded;
+        }
     }
 }
