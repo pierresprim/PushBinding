@@ -18,11 +18,13 @@ System requirements:
 
 OS: Windows
 
-New in this version:
-
-Feature implementation and minor performance update
-
 Project link: https://github.com/pierresprim/PushBinding
+
+Update history:
+----------------
+
+- Can handle push bindings in triggers (v1.2)
+- Feature implementation and minor performance update (v1.1)
 
 License
 -------
