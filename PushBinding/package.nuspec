@@ -19,21 +19,15 @@
     <!--*-->
     <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
     <!--*-->
-    <releaseNotes>
-      System requirements:
+    <releaseNotes>System requirements:
+.NET Framework version: 4.0
+OS: Windows
 
-      .NET Framework version: 4.0
+New in this version:
+Package supports .NET 4.0
 
-      OS: Windows
-
-      New in this version:
-
-      Supports .NET 4.0
-
-      Project link: https://github.com/pierresprim/PushBinding
-
-      License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE
-    </releaseNotes>
+Project link: http://wincopies.com
+License link: https://github.com/pierresprim/PushBinding/blob/master/LICENSE</releaseNotes>
     <copyright>Copyright © 2019 Pierre Sprimont</copyright>
     <tags>
     </tags>
