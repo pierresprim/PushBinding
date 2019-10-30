@@ -4,13 +4,14 @@
     <!--*-->
     <id>PushBinding</id>
     <!--*-->
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <title>PushBinding</title>
     <!--*-->
     <authors>Fredrik Hedblad, Pierre Sprimont</authors>
     <owners>Pierre Sprimont</owners>
     <licenseUrl>https://github.com/pierresprim/PushBinding/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/pierresprim/PushBinding</projectUrl>
+    <projectUrl>http://wincopies.com</projectUrl>
+    <repository type="git" url="https://github.com/pierresprim/PushBinding.git" />
     <!--
     <iconUrl></iconUrl>
 -->
@@ -18,15 +19,16 @@
     <!--*-->
     <description>OneWayToSource Bindings for ReadOnly Dependency Properties</description>
     <!--*-->
-    <releaseNotes>System requirements:
+    <releaseNotes>
+      System requirements:
 
-      .NET Framework version: 4.8
+      .NET Framework version: 4.0
 
       OS: Windows
 
       New in this version:
 
-      Added a feature to handle push bindings in triggers
+      Supports .NET 4.0
 
       Project link: https://github.com/pierresprim/PushBinding
 
