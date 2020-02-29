@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushBinding", "PushBinding\PushBinding.csproj", "{E47AEB50-7203-4133-B815-F028554DB500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushBinding", "PushBinding\PushBinding.csproj", "{FC5A9670-A579-4BB3-B667-F8BF279D79CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushBindingInStyleDemo", "PushBindingInStyleDemo\PushBindingInStyleDemo.csproj", "{FD644ABA-A959-4E7B-8959-C4681F4A847F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushBindingInStyleDemo", "PushBindingInStyleDemo\PushBindingInStyleDemo.csproj", "{87F7E5AC-8232-49C8-84CE-9BBBC284335D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E47AEB50-7203-4133-B815-F028554DB500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E47AEB50-7203-4133-B815-F028554DB500}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E47AEB50-7203-4133-B815-F028554DB500}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E47AEB50-7203-4133-B815-F028554DB500}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD644ABA-A959-4E7B-8959-C4681F4A847F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD644ABA-A959-4E7B-8959-C4681F4A847F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD644ABA-A959-4E7B-8959-C4681F4A847F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD644ABA-A959-4E7B-8959-C4681F4A847F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC5A9670-A579-4BB3-B667-F8BF279D79CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC5A9670-A579-4BB3-B667-F8BF279D79CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC5A9670-A579-4BB3-B667-F8BF279D79CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC5A9670-A579-4BB3-B667-F8BF279D79CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87F7E5AC-8232-49C8-84CE-9BBBC284335D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87F7E5AC-8232-49C8-84CE-9BBBC284335D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87F7E5AC-8232-49C8-84CE-9BBBC284335D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87F7E5AC-8232-49C8-84CE-9BBBC284335D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,7 @@
 ﻿<Window x:Class="PushBindingInStyleDemo.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:pb="clr-namespace:PushBindingExtension"
+        xmlns:pb="clr-namespace:PushBindingExtension;assembly=WinCopies.PushBinding"
         xmlns:vm="clr-namespace:PushBindingInStyleDemo.ViewModel"
         xmlns:con="clr-namespace:PushBindingInStyleDemo.Converters"
         Title="MainWindow" Height="350" Width="525">
