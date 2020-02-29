@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>netcoreapp3.0;net4</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;net4;net45</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <PackageId>WinCopies.PushBindingInStyleDemo</PackageId>
     <Description>Demo for the PushBinding package</Description>
