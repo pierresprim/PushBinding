@@ -17,7 +17,7 @@ namespace PushBindingExtension
 
         private const string StylePushBindings = "StylePushBindings";
 
-        private static DependencyPropertyKey PushBindingsPropertyKey =
+        private static readonly DependencyPropertyKey PushBindingsPropertyKey =
             DependencyProperty.RegisterAttachedReadOnly(PushBindingsInternal,
                                                 typeof(PushBindingCollection),
                                                 typeof(PushBindingManager),
@@ -51,12 +51,18 @@ namespace PushBindingExtension
             ((INotifyCollectionChanged)value).CollectionChanged += CollectionChanged;
         }
 
-        static int GetId(PushBindingCollection sourceCollection) => sourceCollection.Count == 1 ? 1 : sourceCollection[sourceCollection.Count - 1].Id + 1;
+        static int GetId(PushBindingCollection sourceCollection) => sourceCollection.Count == 1 ? 1 :
+#if NETFRAMEWORK
+            sourceCollection[sourceCollection.Count - 1].Id + 1
+#else
+            sourceCollection[^1].Id + 1
+#endif
+            ;
 
         private static void CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
 
-            PushBindingCollection pushBindings = (PushBindingCollection)sender;
+            var pushBindings = (PushBindingCollection)sender;
 
             switch (e.Action)
 
@@ -187,7 +193,7 @@ namespace PushBindingExtension
 
             {
 
-                PushBinding _pushBinding = pushBinding.Clone() as PushBinding;
+                var _pushBinding = pushBinding.Clone() as PushBinding;
 
                 pushBindings.Add(_pushBinding as PushBinding);
 
@@ -227,9 +233,9 @@ namespace PushBindingExtension
 
             {
 
-                PushBinding oldItem = (PushBinding)oldPushBindings[i];
-                PushBinding newItem = (PushBinding)newPushBindings[i];
-                PushBinding clonedPushBinding = newItem.Clone() as PushBinding;
+                var oldItem = (PushBinding)oldPushBindings[i];
+                var newItem = (PushBinding)newPushBindings[i];
+                var clonedPushBinding = newItem.Clone() as PushBinding;
 
                 newItem.TargetObject = clonedPushBinding.TargetObject = pushBindings.TargetObject;
                 newItem.Id = oldItem.Id;
@@ -250,7 +256,7 @@ namespace PushBindingExtension
 
         static void StyleCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            PushBindingCollection pushBindings = (PushBindingCollection)sender;
+            var pushBindings = (PushBindingCollection)sender;
             switch (e.Action)
             {
                 //when an item(s) is added we need to set the Owner property implicitly

@@ -16,7 +16,7 @@ namespace PushBindingInStyleDemo.ViewModel
 
             for (int i = 1; i < 6; i++)
 
-                MyItems.Add(new ListItemViewModel { Name = $"ListItem {i.ToString()}" });
+                MyItems.Add(new ListItemViewModel { Name = $"ListItem {i}" });
         }
 
         #region Properties

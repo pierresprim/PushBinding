@@ -24,7 +24,11 @@ namespace PushBindingExtension
 
         private Binding _binding;
 
+#if NETFRAMEWORK
         protected Binding Binding => _binding ?? (_binding = new Binding());
+#else
+        protected Binding Binding => _binding ??= new Binding();
+#endif
 
         public DependencyObject TargetObject { get; internal set; }
 
@@ -173,14 +177,14 @@ namespace PushBindingExtension
         [DefaultValue(null)]
         public Collection<ValidationRule> ValidationRules => Binding.ValidationRules;
 
-        #endregion // Properties
+#endregion // Properties
 
-        #region Freezable overrides
+#region Freezable overrides
 
         protected override void CloneCore(Freezable sourceFreezable)
         {
 
-            FreezableBinding freezableBindingClone = sourceFreezable as FreezableBinding;
+            var freezableBindingClone = sourceFreezable as FreezableBinding;
 
             if (freezableBindingClone.ElementName != null)
 
@@ -221,6 +225,6 @@ namespace PushBindingExtension
 
         protected override Freezable CreateInstanceCore() => new FreezableBinding();
 
-        #endregion // Freezable overrides
+#endregion // Freezable overrides
     }
 }

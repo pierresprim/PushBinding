@@ -62,19 +62,16 @@ namespace PushBindingExtension
 
         public void SetupTargetBinding()
         {
-            if (TargetObject == null)
-
-                return;
-
             // Prevent the designer from reporting exceptions since
             // changes will be made of a Binding in use if it is set
-            if (DesignerProperties.GetIsInDesignMode(this))
+
+            if (TargetObject == null|| DesignerProperties.GetIsInDesignMode(this))
 
                 return;
 
             // Bind to the selected TargetProperty, e.g. ActualHeight and get
             // notified about changes in OnTargetPropertyListenerChanged
-            Binding listenerBinding = new Binding
+            var listenerBinding = new Binding
             {
                 Source = TargetObject,
                 Mode = BindingMode.OneWay
@@ -82,12 +79,12 @@ namespace PushBindingExtension
 
             listenerBinding.Path = TargetDependencyProperty == null ? new PropertyPath(TargetProperty) : new PropertyPath(TargetDependencyProperty);
 
-            BindingOperations.SetBinding(this, TargetPropertyListenerProperty, listenerBinding);
+            _ = BindingOperations.SetBinding(this, TargetPropertyListenerProperty, listenerBinding);
 
             // Set up a OneWayToSource Binding with the Binding declared in Xaml from
             // the Mirror property of this class. The mirror property will be updated
             // everytime the Listener property gets updated
-            BindingOperations.SetBinding(this, TargetPropertyMirrorProperty, Binding);
+            _ = BindingOperations.SetBinding(this, TargetPropertyMirrorProperty, Binding);
 
             TargetPropertyValueChanged();
 
@@ -115,7 +112,7 @@ namespace PushBindingExtension
 
         protected override void CloneCore(Freezable sourceFreezable)
         {
-            PushBinding pushBinding = sourceFreezable as PushBinding;
+            var pushBinding = sourceFreezable as PushBinding;
             TargetProperty = pushBinding.TargetProperty;
             TargetDependencyProperty = pushBinding.TargetDependencyProperty;
             base.CloneCore(sourceFreezable);
