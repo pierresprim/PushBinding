@@ -4,6 +4,8 @@ A fork of the https://meleak.wordpress.com/2011/08/28/onewaytosource-binding-for
 README
 ======
 
+This project is now included in [https://github.com/pierresprim/WinCopies.Util](https://github.com/pierresprim/WinCopies.Util)
+
 Description
 -----------
 
